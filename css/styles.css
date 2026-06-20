@@ -1,0 +1,543 @@
+/* =========================================
+   Custom Properties
+   ========================================= */
+:root {
+  --color-bg:        #fafaf8;
+  --color-text:      #1c1917;
+  --color-secondary: #6b6560;
+  --color-accent:    #3a3530;
+  --color-divider:   #e2dfd9;
+  --color-alt-bg:    #f3f2ee;
+
+  /* Sans-serif for almost everything */
+  --font-ui:     "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  /* Serif reserved for the hero summary only */
+  --font-serif:  Charter, Georgia, "Times New Roman", serif;
+
+  --max-width:   760px;
+  --section-pad: 80px;
+}
+
+/* =========================================
+   Reset & Base
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================
+   Header
+   ========================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+  transition: box-shadow 0.2s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.site-header .container {
+  height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-name {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+/* =========================================
+   Layout
+   ========================================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: var(--section-pad) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.section-alt {
+  background-color: var(--color-alt-bg);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+/* =========================================
+   Hero
+   ========================================= */
+.hero {
+  padding: 88px 0 72px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.hero-name {
+  font-family: var(--font-ui);
+  font-size: 52px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.hero-tagline {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 28px;
+}
+
+/* Serif lives here — one sentence, warm accent */
+.hero-summary {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  max-width: 580px;
+}
+
+/* =========================================
+   Section Title
+   ========================================= */
+.section-title {
+  font-family: var(--font-ui);
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 28px;
+}
+
+/* =========================================
+   Section Intro Text
+   ========================================= */
+.section-intro-text {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+/* =========================================
+   Section Body (prose sections)
+   ========================================= */
+.section-body p {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.section-body p:last-child {
+  margin-bottom: 0;
+}
+
+.section-body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.section-body a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================
+   Credential List
+   ========================================= */
+.credential-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.credential-list li {
+  position: relative;
+  padding: 14px 0 14px 22px;
+  border-bottom: 1px solid var(--color-divider);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.credential-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-weight: 300;
+}
+
+.credential-list--spaced {
+  margin-top: 20px;
+}
+
+/* =========================================
+   Project Cards
+   ========================================= */
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.project-card:first-child {
+  padding-top: 0;
+}
+
+.project-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project-title {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+
+.project-title a {
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-divider);
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease;
+}
+
+.project-title a:hover {
+  border-bottom-color: var(--color-accent);
+}
+
+.project-title--secondary {
+  margin-top: 18px;
+}
+
+.project-meta {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 14px;
+}
+
+.project-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.project-note {
+  font-size: 0.82rem;
+  color: var(--color-secondary);
+  font-style: italic;
+  margin-top: 16px;
+}
+
+/* =========================================
+   Contributions
+   ========================================= */
+.contributions {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+}
+
+.contributions li {
+  position: relative;
+  padding: 5px 0 5px 18px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.contributions li::before {
+  content: "·";
+  position: absolute;
+  left: 4px;
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+/* =========================================
+   Sub-contributions
+   ========================================= */
+.sub-contributions {
+  list-style: none;
+  padding: 0;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+
+.sub-contributions li {
+  position: relative;
+  padding: 4px 0 4px 16px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.sub-contributions li::before {
+  content: "›";
+  position: absolute;
+  left: 2px;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+/* =========================================
+   Image Row
+   ========================================= */
+.image-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.image-row img {
+  height: 120px;
+  width: auto;
+  image-rendering: pixelated;
+  opacity: 0.8;
+}
+
+.image-row .lucent-logo {
+  height: 40px;
+  align-self: center;
+}
+
+/* =========================================
+   Article List (NYT)
+   ========================================= */
+.article-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.article-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.article-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.article-list a {
+  font-size: 1rem;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-divider);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.article-list a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+.article-desc {
+  font-size: 1rem;
+  color: var(--color-secondary);
+}
+
+.article-meta {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-secondary);
+}
+
+/* =========================================
+   Education List
+   ========================================= */
+.education-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.education-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.edu-school {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.edu-detail {
+  font-size: 1rem;
+  color: var(--color-secondary);
+}
+
+/* =========================================
+   Contact
+   ========================================= */
+.contact-text {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.contact-email a {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 2px;
+  transition: border-color 0.15s ease;
+}
+
+.contact-email a:hover {
+  border-bottom-color: transparent;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.site-footer {
+  background-color: var(--color-text);
+  padding: 36px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.site-footer p {
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: rgba(250, 250, 248, 0.5);
+}
+
+.site-footer a {
+  color: rgba(250, 250, 248, 0.8);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+/* =========================================
+   Responsive — Tablet
+   ========================================= */
+@media (max-width: 700px) {
+  :root {
+    --section-pad: 56px;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 56px 0 48px;
+  }
+
+  .hero-name {
+    font-size: 36px;
+  }
+
+  .hero-summary {
+    font-size: 1.05rem;
+  }
+
+  .education-list li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .edu-school {
+    min-width: unset;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================
+   Responsive — Mobile
+   ========================================= */
+@media (max-width: 420px) {
+  html {
+    font-size: 15px;
+  }
+
+  .hero-name {
+    font-size: 30px;
+  }
+}
